@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Comment;
 use App\Models\Post;
 // use Database\Factories\CommentFactory;
 use Illuminate\Database\Seeder;
@@ -16,12 +17,9 @@ class PostsTableSeeder extends Seeder
      */
     public function run()
     {
-        Post::factory()->count(50)->create()
-            ->each(
-                function ($post) {
-                    $comments = CommentFactory::factory()->count(2)->make();
-                    $post->comments()->saveMany($comments);
-                }
-            );
+        Post::factory()
+            ->count(50)
+            ->has(Comment::factory()->count(2))
+            ->create();
     }
 }
