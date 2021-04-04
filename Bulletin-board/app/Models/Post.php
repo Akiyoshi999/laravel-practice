@@ -9,6 +9,13 @@ class Post extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'name',
+        'subject',
+        'message',
+        'category_id',
+    ];
+
     /**
      * 
      */

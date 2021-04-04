@@ -21,5 +21,5 @@ Route::get('/', function () {
 // Route::get('bbs', [PostsController::class, 'index'])->name('index');
 // Route::get('bbs/{id}', [PostsController::class, 'show'])->name('show');
 Route::resource('bbs', PostsController::class)->only([
-    'index', 'show',
+    'index', 'show', 'create', 'store',
 ]);
