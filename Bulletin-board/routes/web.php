@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PostsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+// Route::get('bbs', [PostsController::class, 'index'])->name('index');
+// Route::get('bbs/{id}', [PostsController::class, 'show'])->name('show');
+Route::resource('bbs', PostsController::class)->only([
+    'index', 'show',
+]);
